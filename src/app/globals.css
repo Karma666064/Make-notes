@@ -4,6 +4,49 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .note-badge-blue {
+        @apply bg-blue-500/40;
+        @apply px-3;
+        @apply rounded-xl;
+        @apply border-2;
+        @apply border-blue-500;
+        @apply font-medium text-sm;
+        @apply text-blue-800;
+        @apply cursor-default;
+    }
+    .note-badge-green {
+        @apply bg-green-500/40;
+        @apply px-3;
+        @apply rounded-xl;
+        @apply border-2;
+        @apply border-green-500;
+        @apply font-medium text-sm;
+        @apply text-green-800;
+        @apply cursor-default;
+    }
+    .note-badge-yellow {
+        @apply bg-yellow-500/40;
+        @apply px-3;
+        @apply rounded-xl;
+        @apply border-2;
+        @apply border-yellow-500;
+        @apply font-medium text-sm;
+        @apply text-yellow-800;
+        @apply cursor-default;
+    }
+    .note-badge-red {
+        @apply bg-red-500/40;
+        @apply px-3;
+        @apply rounded-xl;
+        @apply border-2;
+        @apply border-red-500;
+        @apply font-medium text-sm;
+        @apply text-red-800;
+        @apply cursor-default;
+    }
+}
+
 body {
     @apply bg-slate-200;
     @apply dark:bg-slate-600;

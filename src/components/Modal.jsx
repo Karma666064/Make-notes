@@ -2,15 +2,17 @@
 import React from 'react';
 
 const Modal = (props) => {
+    const [type, setType] = props.type;
     const [taskTitle, setTaskTitle] = props.title;
     const [taskText, setTaskText] = props.text;
     const [notes, setNotes] = props.notes;
 
     const handleConfirm = () => {
-        setNotes(notes => [...notes, {id: crypto.randomUUID(), title: taskTitle, text: taskText}]);
+        setNotes(notes => [...notes, {id: crypto.randomUUID(), type: type, title: taskTitle, text: taskText}]);
 
         props.onClose();
 
+        setType('')
         setTaskTitle('');
         setTaskText('');
     }
@@ -22,7 +24,15 @@ const Modal = (props) => {
                 <p className="text-2xl font-medium text-center">Add Note</p>
 
                 <div className='mx-32 my-3 flex flex-col items-center gap-5 *:w-full *:py-1 *:px-3 *:text-gray-800 *:bg-slate-200 *:rounded-sm'>
+                    <select name="selectType" id="selectType" defaultValue='none' onChange={event => setType(event.target.value)}>
+                        <option value="none" disabled>-- Select a Type --</option>
+                        <option value="Personnal">Personnal</option>
+                        <option value="Home">Home</option>
+                        <option value="Buisiness">Buisiness</option>
+                    </select>
+
                     <input type="text" name="inputTitle" id="inputTitle" placeholder='Choose a Title ...'  value={taskTitle} onChange={event => setTaskTitle(event.target.value)}/>
+
                     <textarea name="areaText" id="areaText" cols={30} rows={5} placeholder='Type your text ...' value={taskText} onChange={event => setTaskText(event.target.value)}></textarea>
                 </div>
 

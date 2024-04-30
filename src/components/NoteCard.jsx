@@ -1,10 +1,12 @@
 import React from 'react'
 
 const NoteCard = (props) => {
+    const colorBadge = 'note-badge-blue';
+
     return (
         <article className='bg-slate-400 p-4 w-80 max-h-64 text-slate-950 rounded-md'>
             <header className="flex justify-between">
-                <span className="bg-blue-500/40 px-3 rounded-xl border-2 border-blue-500 font-medium text-sm text-blue-800 cursor-default">Personnal</span>
+                <span className={props.type == 'Personnal' ? 'note-badge-blue' : props.type == 'Home' ? 'note-badge-green' : props.type == 'Buisiness' ? 'note-badge-yellow' : 'note-badge-red'}>{props.type}</span>
 
                 <div className="flex gap-3">
                     <input className="cursor-pointer" type="checkbox" name="selectNote" id="selectNote" />

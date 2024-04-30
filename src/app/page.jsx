@@ -5,6 +5,7 @@ import { useState } from "react";
 
 export default function Home() {
     const [showModal, setShowModal] = useState(false);
+    const useStateType = useState('');
     const useStateTitle = useState('');
     const useStateText = useState('');
     const useStateNotes = useState([]);
@@ -36,13 +37,13 @@ export default function Home() {
 
                 <section className="mt-6 grid grid-cols-[repeat(3,_320px)] gap-9 justify-center">
                     { useStateNotes[0].length > 0 ?
-                        useStateNotes[0].map(note => <NoteCard key={note.id} title={note.title} text={note.text} />) :
+                        useStateNotes[0].map(note => <NoteCard key={note.id} type={note.type} title={note.title} text={note.text} />) :
                         <p>Have no notes here!</p>
                     }
                 </section>
             </main>
 
-            <Modal isVisible={showModal} onClose={handleShowModal} title={useStateTitle} text={useStateText} notes={useStateNotes}/>
+            <Modal isVisible={showModal} onClose={handleShowModal} title={useStateTitle} text={useStateText} type={useStateType} notes={useStateNotes} />
         </>
     );
 }
